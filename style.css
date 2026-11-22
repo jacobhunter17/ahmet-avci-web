@@ -202,3 +202,8 @@ a { color: var(--navy); }
   .bulten-inner { grid-template-columns: 1fr; }
 }
 .cover-img { display: block; width: 100%; max-width: 220px; height: auto; aspect-ratio: auto; border-radius: 3px 8px 8px 3px; box-shadow: 8px 10px 24px rgba(31,42,68,.25); background: var(--white); }
+
+/* Metinler iki yana yaslı, Türkçe hecelemeyle */
+.prose p, .prose li, .lead, .card p:not(.meta), .book p:not(.meta), .door p, .event p, .note-box, .band p, .bulten p {
+  text-align: justify; hyphens: auto; -webkit-hyphens: auto;
+}
