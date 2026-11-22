@@ -170,3 +170,34 @@ a { color: var(--navy); }
   .footer-grid { grid-template-columns: 1fr; }
   .pubs li { flex-direction: column; gap: 4px; }
 }
+
+/* İçeriği henüz olmayan (yakında) alanlar */
+.bos { border: 2px dashed #CFC6B4; border-radius: var(--radius); padding: 28px; text-align: center; color: var(--muted); font-size: .95rem; background: rgba(255,255,255,.45); }
+.card .bos { padding: 14px; margin-top: 12px; font-size: .85rem; }
+.bos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; }
+.bos-kart { min-height: 170px; display: grid; place-items: center; text-align: center; padding: 20px; border: 2px dashed #CFC6B4; border-radius: var(--radius); color: var(--muted); font-size: .92rem; background: rgba(255,255,255,.45); }
+.video-kart, .foto-kart { aspect-ratio: 16/9; min-height: 0; }
+.foto-kart { aspect-ratio: 4/3; }
+.yorum-kart { min-height: 200px; }
+.logos-title { margin-top: 50px; }
+.logos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; margin-top: 16px; }
+.bos-logo { height: 70px; display: grid; place-items: center; border: 2px dashed #CFC6B4; border-radius: 10px; color: #9A9384; font-size: .8rem; }
+.soon-pill { display: inline-block; font-size: .8rem; font-weight: 600; color: var(--muted); border: 1px dashed #BDB3A0; border-radius: 999px; padding: .25em .8em; margin: 4px 6px 0 0; }
+.book-links { margin-top: 8px; }
+.filters { margin-bottom: 26px; }
+.btn-disabled { background: transparent; border: 2px dashed #BDB3A0; color: var(--muted); cursor: default; margin-top: 20px; }
+.btn-disabled:hover { transform: none; background: transparent; }
+.btn[disabled] { opacity: .6; cursor: default; transform: none; }
+.bulten { background: var(--gold-soft); }
+.bulten-inner { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
+.bulten-form, .mini-bulten { display: flex; gap: 10px; flex-wrap: wrap; }
+.bulten-form input, .mini-bulten input { flex: 1; min-width: 0; font: inherit; padding: .75em 1em; border: 1px solid #CFCBC2; border-radius: 999px; background: var(--white); }
+.bulten-form { margin-bottom: 24px; }
+.mini-bulten input { padding: .5em .9em; font-size: .88rem; }
+.social { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 16px 0 6px; }
+.footer .social a { display: inline; }
+.footer .soon { color: #6F7890; cursor: default; }
+@media (max-width: 860px) {
+  .logos { grid-template-columns: repeat(3, 1fr); }
+  .bulten-inner { grid-template-columns: 1fr; }
+}

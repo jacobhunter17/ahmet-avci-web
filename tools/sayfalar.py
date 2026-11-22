@@ -11,14 +11,14 @@ SCHOLAR = "https://scholar.google.com/citations?user=0Kvo2tEAAAAJ"
 DERGIPARK = "https://dergipark.org.tr/tr/pub/@ahmetavci7"
 VIDEO_ID = "k4j9KXiS_m0"
 # Duyuru şeridi: yeni kitap ya da yaklaşan seminer olunca buraya yazın (boşsa gösterilmez).
-DUYURU = ""
+DUYURU = "Duyuru: yeni kitap ve yaklaşan seminer duyuruları burada yer alacak."
 
 MENU = [
     ("hakkimda.html", "Hakkımda"),
     ("kitaplar.html", "Kitaplar"),
     ("konferanslar.html", "Konferanslar"),
-    ("akademik.html", "Akademik"),
-    ("medya.html", "Medya"),
+    ("videolar.html", "Videolar"),
+    ("yazilar.html", "Yazılar"),
     ("iletisim.html", "İletişim"),
 ]
 
@@ -84,15 +84,23 @@ FOOTER = f"""<footer class="footer">
     </div>
     <div>
       <h4>Menü</h4>
-      <a href="hakkimda.html">Hakkımda</a><a href="kitaplar.html">Kitaplar</a><a href="konferanslar.html">Konferanslar</a><a href="akademik.html">Akademik</a><a href="medya.html">Medya ve Basında</a>
+      <a href="kitaplar.html">Kitaplar</a><a href="konferanslar.html">Konferanslar</a><a href="videolar.html">Videolar</a><a href="yazilar.html">Yazılar</a><a href="akademik.html">Akademik</a><a href="danismanlik.html">Kurumsal Danışmanlık</a><a href="basinda.html">Basında</a><a href="kaynaklar.html">Kaynaklar</a><a href="bulten.html">Bülten</a><a href="en.html">English</a>
     </div>
     <div>
       <h4>İletişim</h4>
       <a href="iletisim.html?tur=konferans">Konferans ve seminer</a><a href="iletisim.html?tur=danismanlik">Eğitim ve danışmanlık</a><a href="iletisim.html?tur=basin">Basın ve röportaj</a><a href="mailto:{MAIL}">{MAIL}</a>
     </div>
     <div>
-      <h4>Takip edin</h4>
-      <a href="{LINKEDIN}" target="_blank" rel="noopener">LinkedIn</a><a href="{SCHOLAR}" target="_blank" rel="noopener">Google Scholar</a><a href="{DERGIPARK}" target="_blank" rel="noopener">DergiPark</a><a href="https://www.youtube.com/watch?v={VIDEO_ID}" target="_blank" rel="noopener">YouTube</a>
+      <h4>Bülten</h4>
+      <form class="mini-bulten" onsubmit="return false"><input type="email" placeholder="E-posta adresiniz" aria-label="E-posta adresiniz" disabled><button class="btn btn-small" disabled>Yakında</button></form>
+      <div class="social">
+        <a href="#" class="soon" aria-label="YouTube (yakında)" title="Yakında">YouTube</a>
+        <a href="#" class="soon" aria-label="Instagram (yakında)" title="Yakında">Instagram</a>
+        <a href="#" class="soon" aria-label="X (yakında)" title="Yakında">X</a>
+        <a href="{LINKEDIN}" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="#" class="soon" aria-label="Facebook (yakında)" title="Yakında">Facebook</a>
+      </div>
+      <a href="{SCHOLAR}" target="_blank" rel="noopener">Google Scholar</a><a href="{DERGIPARK}" target="_blank" rel="noopener">DergiPark</a>
     </div>
   </div>
   <div class="wrap footer-bottom">
@@ -105,6 +113,15 @@ FOOTER = f"""<footer class="footer">
 </body>
 </html>
 """
+
+
+def bos(text="Yakında eklenecek."):
+    """İçeriği henüz olmayan alan için yer tutucu."""
+    return f'<div class="bos reveal"><span>{text}</span></div>'
+
+
+def bos_kartlar(n, etiket, cls="bos-kart"):
+    return "\n".join(f'      <div class="{cls} reveal"><span>{etiket}</span></div>' for _ in range(n))
 
 
 def page_hero(eyebrow, title, lead=""):
@@ -151,7 +168,7 @@ BOOKS = [
 
 
 def book_cards():
-    return "\n".join(f"""      <article class="book reveal"><div class="cover">{t}</div><h3>{t}</h3><p>{d}</p>{f'<p class="meta">{m}</p>' if m else ''}</article>""" for t, d, m in BOOKS)
+    return "\n".join(f"""      <article class="book reveal"><div class="cover">{t}</div><h3>{t}</h3><p>{d}</p>{f'<p class="meta">{m}</p>' if m else ''}<p class="book-links"><span class="soon-pill">İlk bölümü indir · yakında</span><span class="soon-pill">Satın al · yakında</span></p></article>""" for t, d, m in BOOKS)
 
 
 VIDEO = f"""<div class="video reveal">
@@ -224,7 +241,7 @@ def build():
     <div class="doors">
       <a class="door reveal" href="kitaplar.html"><span class="door-k">Öğrenci &amp; Aile</span><h3>Başarı, mutluluk ve aile içi iletişim</h3><p>Gençler ve anne-babalar için kitaplar ve seminerler.</p><span class="more">Kitaplara göz atın →</span></a>
       <a class="door reveal" href="konferanslar.html#egitimciler"><span class="door-k">Eğitimci &amp; Okul</span><h3>Okulda liderlik ve öğretmen gelişimi</h3><p>Okul yöneticileri ve öğretmenler için seminer ve mesleki gelişim programları.</p><span class="more">Seminer konuları →</span></a>
-      <a class="door reveal" href="konferanslar.html#kurumlar"><span class="door-k">Kurum &amp; Şirket</span><h3>Dijital liderlik, insan kaynakları ve yönetim</h3><p>Kurumlar için konferans, kurumsal eğitim ve yönetim danışmanlığı.</p><span class="more">Kurumsal hizmetler →</span></a>
+      <a class="door reveal" href="danismanlik.html"><span class="door-k">Kurum &amp; Şirket</span><h3>Dijital liderlik, insan kaynakları ve yönetim</h3><p>Kurumlar için konferans, kurumsal eğitim ve yönetim danışmanlığı.</p><span class="more">Kurumsal hizmetler →</span></a>
     </div>
   </div>
 </section>
@@ -234,7 +251,7 @@ def build():
     <div class="reveal">
       <p class="eyebrow">Tanıtım</p>
       <h2>Sahneden bir kesit</h2>
-      <p>Eğitim, yönetim, aile ve gençlik üzerine konuşmalarından biri. Diğer konuşma ve programlar için <a href="medya.html">Medya</a> sayfasına bakabilirsiniz.</p>
+      <p>1–2 dakikalık tanıtım videosu hazırlanınca buraya gelecek. Şimdilik konuşmalarından bir kesit. Diğer videolar için <a href="videolar.html">Videolar</a> sayfasına bakabilirsiniz.</p>
     </div>
     {VIDEO}
   </div>
@@ -251,9 +268,48 @@ def build():
 
 <section class="section alt">
   <div class="wrap">
+    <div class="section-head reveal"><div><p class="eyebrow">YouTube</p><h2>Son videolar</h2></div><a href="videolar.html" class="all">Tüm videolar →</a></div>
+    <div class="bos-grid">
+{bos_kartlar(3, "Video yakında", "bos-kart video-kart")}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
     <div class="section-head reveal"><div><p class="eyebrow">Konferans ve Seminerler</p><h2>Kurumunuz için konuşma başlıkları</h2></div><a href="konferanslar.html" class="all">Tüm konular →</a></div>
     <div class="cards">
 {topic_cards(TOPICS)}
+    </div>
+    <p class="eyebrow reveal logos-title">Konuşma yaptığı kurumlar</p>
+    <div class="logos">
+{bos_kartlar(6, "Logo", "bos-logo")}
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <p class="eyebrow reveal">Yorumlar</p>
+    <h2 class="reveal">Dinleyenler ne diyor?</h2>
+    <div class="bos-grid">
+{bos_kartlar(3, "Kurum yöneticileri, öğretmenler, aileler ve öğrencilerden yorumlar yakında", "bos-kart yorum-kart")}
+    </div>
+  </div>
+</section>
+
+<section class="section bulten">
+  <div class="wrap bulten-inner reveal">
+    <div><p class="eyebrow">Bülten</p><h2>Kitabın ilk bölümünü ücretsiz alın</h2><p>Aylık e-posta bültenine kaydolun, yeni yazılar ve seminerlerden ilk siz haberdar olun.</p></div>
+    <form class="bulten-form" onsubmit="return false"><input type="email" placeholder="E-posta adresiniz" aria-label="E-posta adresiniz" disabled><button class="btn" disabled>Yakında</button></form>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal"><div><p class="eyebrow">Yazılar</p><h2>Son yazılar</h2></div><a href="yazilar.html" class="all">Tüm yazılar →</a></div>
+    <div class="bos-grid">
+{bos_kartlar(3, "Yazı yakında")}
     </div>
   </div>
 </section>
@@ -299,6 +355,17 @@ def build():
     <ul class="timeline">
 {tl}
     </ul>
+    <p class="reveal"><a class="btn btn-disabled" aria-disabled="true">CV indir (PDF) · yakında</a></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <p class="eyebrow reveal">Fotoğraflar</p>
+    <h2 class="reveal">Galeri</h2>
+    <div class="bos-grid gallery">
+{bos_kartlar(6, "Fotoğraf yakında", "bos-kart foto-kart")}
+    </div>
   </div>
 </section>
 """)
@@ -349,10 +416,23 @@ def build():
         <p class="meta">Şirketler · Kamu kurumları · Okullar</p>
       </article>
     </div>
+    <p class="reveal note-box">Danışmanlık ve eğitim paketlerinin ayrıntıları için <a href="danismanlik.html">Kurumsal Danışmanlık</a> sayfasına bakın.</p>
   </div>
 </section>
 
 <section class="section">
+  <div class="wrap">
+    <p class="eyebrow reveal">Takvim</p>
+    <h2 class="reveal">Yaklaşan seminerler</h2>
+    {bos("Yaklaşan seminer ve konferanslar burada listelenecek.")}
+    <p class="eyebrow reveal logos-title">Konuşma yaptığı kurumlar</p>
+    <div class="logos">
+{bos_kartlar(6, "Logo", "bos-logo")}
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
   <div class="wrap two-col">
     <div class="reveal">
       <p class="eyebrow">Geçmiş etkinliklerden</p>
@@ -387,30 +467,31 @@ def build():
     <ul class="pubs">
 {pubs}
     </ul>
-    <p class="reveal profiles">Tüm yayınlar: <a href="{SCHOLAR}" target="_blank" rel="noopener">Google Scholar</a> · <a href="{DERGIPARK}" target="_blank" rel="noopener">DergiPark</a></p>
+    <p class="reveal profiles">Tüm yayınlar: <a href="{SCHOLAR}" target="_blank" rel="noopener">Google Scholar</a> · <a href="{DERGIPARK}" target="_blank" rel="noopener">DergiPark</a> · <span class="soon-pill">ORCID · yakında</span></p>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap two-col">
+    <div class="reveal">
+      <h2>Projeler</h2>
+      {bos("Yürüttüğü ulusal ve uluslararası projeler yakında eklenecek.")}
+    </div>
+    <div class="reveal">
+      <h2>Verdiği dersler</h2>
+      {bos("Lisans ve lisansüstü dersler yakında eklenecek.")}
+    </div>
   </div>
 </section>
 """)
 
     # Medya
-    write("medya.html",
-          "Medya ve Basında | Prof. Dr. Ahmet Avcı",
+    write("basinda.html",
+          "Basında | Prof. Dr. Ahmet Avcı",
           "Prof. Dr. Ahmet Avcı'nın televizyon programları, konuşma videoları ve basında yer alan haberleri.",
-          page_hero("Medya ve Basında", "Videolar, programlar ve haberler") +
+          page_hero("Basında", "Röportajlar, programlar ve haberler", "Tarih, kanal ve bağlantılarıyla basında yer alan haberler.") +
           f"""<section class="section">
-  <div class="wrap two-col">
-    <div class="reveal">
-      <p class="eyebrow">Video</p>
-      <h2>Konuşmalar</h2>
-      <p>Konuşma ve programların videoları.</p>
-    </div>
-    {VIDEO}
-  </div>
-</section>
-
-<section class="section alt">
   <div class="wrap">
-    <p class="eyebrow reveal">Basında</p>
     <h2 class="reveal">Program ve haberler</h2>
     <div class="events">
       <article class="event reveal">
@@ -425,6 +506,8 @@ def build():
         <a href="https://izmir.meb.gov.tr/www/basarili-ve-mutlu-ogrenciler-yetistirmek-icin-ogretmenler-ve-idareciler-bir-arada/icerik/1345" target="_blank" rel="noopener">Haberi oku →</a>
       </article>
     </div>
+    <h2 class="reveal" style="margin-top:60px">Röportajlar</h2>
+    {bos("Röportajlar tarih ve kanal bilgisiyle burada listelenecek.")}
     <p class="reveal note-box">Röportaj ve basın talepleri için <a href="iletisim.html?tur=basin">iletişim formunu</a> kullanabilirsiniz.</p>
   </div>
 </section>
@@ -465,6 +548,102 @@ def build():
       <p class="form-note">Gönder'e bastığınızda e-posta uygulamanız hazır bir mesajla açılır. Bilgileriniz sitede saklanmaz. Ayrıntılar: <a href="kvkk.html">KVKK Aydınlatma Metni</a>.</p>
       <button class="btn" type="submit">E-posta ile Gönder</button>
     </form>
+  </div>
+</section>
+""")
+
+    # Videolar
+    write("videolar.html", "Videolar | Prof. Dr. Ahmet Avcı",
+          "Prof. Dr. Ahmet Avcı'nın konuşma, seminer ve program videoları.",
+          page_hero("Videolar", "Konuşmalar ve programlar", "YouTube kanalındaki videolar, çalma listelerine göre.") +
+          f"""<section class="section">
+  <div class="wrap two-col">
+    <div class="reveal"><p class="eyebrow">Öne çıkan</p><h2>Prof. Dr. Ahmet Avcı konuşması</h2></div>
+    {VIDEO}
+  </div>
+</section>
+<section class="section alt">
+  <div class="wrap">
+    <div class="filters reveal"><span class="soon-pill">Seminerler</span><span class="soon-pill">Aile</span><span class="soon-pill">Gençlik</span><span class="soon-pill">Yönetim</span><span class="soon-pill">TV programları</span></div>
+    <div class="bos-grid">
+{bos_kartlar(6, "Video yakında", "bos-kart video-kart")}
+    </div>
+  </div>
+</section>
+""")
+
+    # Yazılar
+    write("yazilar.html", "Yazılar | Prof. Dr. Ahmet Avcı",
+          "Prof. Dr. Ahmet Avcı'nın öğrenci, aile, eğitimci, hayat, iş ve yönetim üzerine yazıları.",
+          page_hero("Yazılar", "Yazılar ve makaleler", "Öğrenci, aile, eğitimci, hayat, iş ve yönetim üzerine.") +
+          f"""<section class="section">
+  <div class="wrap">
+    <div class="filters reveal"><span class="soon-pill">Öğrenci</span><span class="soon-pill">Aile</span><span class="soon-pill">Eğitimci</span><span class="soon-pill">Hayat</span><span class="soon-pill">İş ve Yönetim</span></div>
+    <div class="bos-grid">
+{bos_kartlar(6, "Yazı yakında")}
+    </div>
+  </div>
+</section>
+""")
+
+    # Kurumsal Danışmanlık
+    write("danismanlik.html", "Kurumsal Danışmanlık | Prof. Dr. Ahmet Avcı",
+          "Okullar, kolejler ve şirketler için kurumsal eğitim ve yönetim danışmanlığı.",
+          page_hero("Kurumsal Danışmanlık", "Okullar ve şirketler için danışmanlık ve eğitim",
+                    "Üniversite, kamu ve özel sektördeki üst düzey yöneticilik tecrübesiyle.") +
+          f"""<section class="section">
+  <div class="wrap">
+    <div class="cards">
+      <article class="card reveal"><h3>Okullar ve kolejler</h3><p>Okul liderliği, öğretmen gelişimi ve okul-aile iş birliği programları.</p>{bos("Paket ayrıntıları yakında.")}</article>
+      <article class="card reveal"><h3>Şirketler</h3><p>Dijital liderlik, insan kaynakları, örgüt kültürü ve kurum içi akademi kurulumu.</p>{bos("Paket ayrıntıları yakında.")}</article>
+      <article class="card reveal"><h3>Kamu ve STK'lar</h3><p>Yönetim, organizasyon ve eğitim programlarının tasarımı.</p>{bos("Paket ayrıntıları yakında.")}</article>
+    </div>
+    <p class="reveal note-box">Görüşme talebi için <a href="iletisim.html?tur=danismanlik">iletişim formunu</a> kullanabilirsiniz.</p>
+  </div>
+</section>
+""")
+
+    # Kaynaklar
+    write("kaynaklar.html", "Kaynaklar | Prof. Dr. Ahmet Avcı",
+          "Ücretsiz çalışma kâğıtları, testler ve sunum özetleri.",
+          page_hero("Kaynaklar", "Ücretsiz kaynaklar", "Öğrenciler, aileler ve eğitimciler için çalışma kâğıtları, testler ve sunum özetleri.") +
+          f"""<section class="section">
+  <div class="wrap">
+    <h2 class="reveal">Çalışma kâğıtları</h2>
+    <div class="bos-grid">
+{bos_kartlar(3, "Çalışma kâğıdı yakında")}
+    </div>
+    <h2 class="reveal" style="margin-top:60px">Testler</h2>
+    <div class="bos-grid">
+{bos_kartlar(3, "Test yakında")}
+    </div>
+    <h2 class="reveal" style="margin-top:60px">Sunum özetleri</h2>
+    <div class="bos-grid">
+{bos_kartlar(3, "Sunum özeti yakında")}
+    </div>
+  </div>
+</section>
+""")
+
+    # Bülten
+    write("bulten.html", "Bülten | Prof. Dr. Ahmet Avcı",
+          "Prof. Dr. Ahmet Avcı'nın aylık e-posta bülteni.",
+          page_hero("Bülten", "Aylık e-posta bülteni", "Kaydolanlara hediye: kitaptan ilk bölüm.") +
+          f"""<section class="section">
+  <div class="wrap narrow">
+    <form class="bulten-form reveal" onsubmit="return false"><input type="email" placeholder="E-posta adresiniz" aria-label="E-posta adresiniz" disabled><button class="btn" disabled>Yakında</button></form>
+    {bos("Bülten kaydı yakında açılacak.")}
+  </div>
+</section>
+""")
+
+    # English
+    write("en.html", "Prof. Dr. Ahmet Avcı | English",
+          "Prof. Dr. Ahmet Avcı: academic, executive, author and keynote speaker.",
+          page_hero("English", "Prof. Dr. Ahmet Avcı", "Academic, executive, author and keynote speaker.") +
+          f"""<section class="section">
+  <div class="wrap narrow">
+    {bos("English summary coming soon.")}
   </div>
 </section>
 """)
@@ -514,7 +693,7 @@ def build():
 """)
 
     # sitemap
-    pages = ["index.html"] + [h for h, _ in MENU] + ["kvkk.html", "cerez-politikasi.html", "gizlilik.html"]
+    pages = ["index.html"] + [h for h, _ in MENU] + ["akademik.html", "danismanlik.html", "basinda.html", "kaynaklar.html", "bulten.html", "en.html", "kvkk.html", "cerez-politikasi.html", "gizlilik.html"]
     urls = "\n".join(f"  <url><loc>{SITE}/{'' if p == 'index.html' else p}</loc></url>" for p in pages)
     (ROOT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}\n</urlset>\n', encoding="utf-8")
 

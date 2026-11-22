@@ -48,3 +48,6 @@ if (form) {
     location.href = 'mailto:ahmetavci7@gmail.com?subject=' + encodeURIComponent(konular[f.get('tur')] || konular.genel) + '&body=' + encodeURIComponent(body);
   });
 }
+
+// Henüz adresi olmayan sosyal medya bağlantıları
+document.querySelectorAll('a.soon').forEach(a => a.addEventListener('click', e => e.preventDefault()));
