@@ -201,3 +201,4 @@ a { color: var(--navy); }
   .logos { grid-template-columns: repeat(3, 1fr); }
   .bulten-inner { grid-template-columns: 1fr; }
 }
+.cover-img { display: block; width: 100%; max-width: 220px; height: auto; aspect-ratio: auto; border-radius: 3px 8px 8px 3px; box-shadow: 8px 10px 24px rgba(31,42,68,.25); background: var(--white); }

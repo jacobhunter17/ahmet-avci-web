@@ -4,7 +4,8 @@ Kullanım: python3 tools/sayfalar.py   (depo kökünden). Çıktı: kökteki *.h
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SITE = "https://www.ahmetavci.com.tr"
+# Yeni alan adı Vercel'de geçerli olunca bunu "https://www.ahmetavci.com.tr" yapın ve sayfaları yeniden üretin.
+SITE = "https://www.ahmetavci7.com"
 MAIL = "ahmetavci7@gmail.com"
 LINKEDIN = "https://www.linkedin.com/in/ahmetavci7/"
 SCHOLAR = "https://scholar.google.com/citations?user=0Kvo2tEAAAAJ"
@@ -161,14 +162,18 @@ def topic_cards(items):
 
 
 BOOKS = [
-    ("Başarılı ve Mutlu Olmaya Var mısın?", "Öğrencilere ve gençlere başarıyla mutluluğu birlikte kurmanın yollarını anlatan bir rehber.", ""),
-    ("Kendimizi ve Çocuklarımızı Nasıl Yetiştirelim?", "Aile içi iletişim, anne-baba tutumları ve çocuk yetiştirme üzerine anne ve babalar için bir kitap.", ""),
-    ("Eğitim Bilimine Giriş", "Eğitim bilimlerinin temel konularını bir arada ele alan kapsamlı bir kaynak kitap.", "12 bölüm · 1.008 sayfa"),
+    # (başlık, açıklama, ek bilgi, kapak görseli; görsel yoksa "")
+    ("Başarılı ve Mutlu Olmaya Var mısın?", "Öğrencilere ve gençlere başarıyla mutluluğu birlikte kurmanın yollarını anlatan bir rehber.", "21. baskı · HBG Yayınları", "basarili-ve-mutlu.jpg"),
+    ("Kendimizi ve Çocuklarımızı Nasıl Yetiştirelim?", "Aile içi iletişim, anne-baba tutumları ve çocuk yetiştirme üzerine anne ve babalar için bir kitap.", "", "kendimizi-ve-cocuklarimizi.jpg"),
+    ("Dijital Liderlik ve Proaktif İş Davranışları İlişkisi", "Bireysel özümseme kapasitesi ve katılımcı insan kaynakları uygulamalarının rolü.", "Gece Kitaplığı", "dijital-liderlik.jpg"),
+    ("Personel Güçlendirme, Örgütsel Adanmışlık, İş Tatmini", "Kurumsal Başarının Anahtarı 1. Eğitim yönetimi açısından analiz ve değerlendirme.", "Gece Kitaplığı", "kurumsal-basari-1.jpg"),
+    ("Psikolojik Sermaye, Çalışan Esenliği, Örgütsel Dayanıklılık, İş Yaşamında Anlam ve Amaç", "Kurumsal Başarının Anahtarı 2. Eğitim yönetimi açısından analiz ve değerlendirme.", "Gece Kitaplığı", "kurumsal-basari-2.jpg"),
+    ("Eğitim Bilimine Giriş", "Eğitim bilimlerinin temel konularını bir arada ele alan kapsamlı bir kaynak kitap.", "12 bölüm · 1.008 sayfa", ""),
 ]
 
 
 def book_cards():
-    return "\n".join(f"""      <article class="book reveal"><div class="cover">{t}</div><h3>{t}</h3><p>{d}</p>{f'<p class="meta">{m}</p>' if m else ''}<p class="book-links"><span class="soon-pill">İlk bölümü indir · yakında</span><span class="soon-pill">Satın al · yakında</span></p></article>""" for t, d, m in BOOKS)
+    return "\n".join(f"""      <article class="book reveal">{f'<img class="cover-img" src="img/kitaplar/{c}" alt="{t} kitap kapağı" width="600" height="900" loading="lazy">' if c else f'<div class="cover">{t}</div>'}<h3>{t}</h3><p>{d}</p>{f'<p class="meta">{m}</p>' if m else ''}<p class="book-links"><span class="soon-pill">İlk bölümü indir · yakında</span><span class="soon-pill">Satın al · yakında</span></p></article>""" for t, d, m, c in BOOKS)
 
 
 VIDEO = f"""<div class="video reveal">
@@ -180,7 +185,7 @@ VIDEO = f"""<div class="video reveal">
 
 STATS = """  <div class="wrap stats reveal">
     <div><strong>2</strong><span>doktora</span></div>
-    <div><strong>3</strong><span>kitap</span></div>
+    <div><strong>6</strong><span>kitap</span></div>
     <div><strong>30+</strong><span>hakemli makale</span></div>
     <div><strong>850+</strong><span>akademik atıf</span></div>
     <div><strong>3</strong><span>kurucusu olduğu üniversite merkezi</span></div>
@@ -342,7 +347,7 @@ def build():
       <p>İstanbul'da doğan Prof. Dr. Ahmet Avcı; 2002'de lisans, 2005'te yüksek lisans ve 2010'da doktora eğitimini Marmara Üniversitesi'nde tamamladı. 2010 yılında Fatih Sultan Mehmet Vakıf Üniversitesi Eğitim Bilimleri Bölümü'nde akademik kariyerine başladı. Aynı yıl Sürekli Eğitim Uygulama ve Araştırma Merkezi'nin (FSMSEM) kurucu müdürlüğünü üstlendi ve merkezi 2010–2018 yılları arasında yönetti. 2014'te Kariyer, Girişimcilik ve Mesleki Test Merkezi'ni (FSMKAM), 2018'de ise tasarımında ve geliştirilmesinde aktif rol aldığı SOSYOPARK'ı kurucu müdür olarak hayata geçirdi.</p>
       <p>2020–2023 yılları arasında Varlık Fonu bünyesindeki kurumlarda üst düzey yöneticilik yaptı. Türkiye Sigorta'da önce Eğitim, Gelişim ve Akademi Direktörlüğünü, ardından CEO Ofis Direktörlüğünü yürüttü. 2022'de Türkiye Katılım Sigorta'nın kuruluşunda aktif rol aldı; İnsan Kaynakları, Finans, Bilgi Teknolojileri, Kurumsal İletişim ve Tedarik birimlerini Genel Müdür Yardımcısı olarak yönetti.</p>
       <p>Ulusal ve uluslararası birçok araştırma ve projede proje başkanı, yürütücü, tasarımcı ve koordinatör olarak görev aldı. Araştırma, eğitim ve danışmanlık şirketlerinde eğitim koordinatörü, proje direktörü ve genel müdür olarak çalıştı; birçok firmaya yönetim danışmanlığı verdi. Pek çok radyo ve televizyon programına konuk oldu; eğitim, kültür ve yönetim konularını ele aldığı “Artılar ve Eksiler” programını hazırlayıp sundu.</p>
-      <p>“Dijital Liderlik ve Proaktif İş Davranışı, Bireysel Özümseme Kapasitesi ve Katılımcı İnsan Kaynaklarının Rolü” başlıklı ikinci doktorasıyla, kurumların teknoloji, insan kaynakları ve kurumsal başarı bağlamında yararlanabileceği bir rehber ortaya koydu. Üç kitabı ve ulusal ve uluslararası hakemli dergilerde 30'un üzerinde makalesi bulunuyor.</p>
+      <p>“Dijital Liderlik ve Proaktif İş Davranışı, Bireysel Özümseme Kapasitesi ve Katılımcı İnsan Kaynaklarının Rolü” başlıklı ikinci doktorasıyla, kurumların teknoloji, insan kaynakları ve kurumsal başarı bağlamında yararlanabileceği bir rehber ortaya koydu. Altı kitabı ve ulusal ve uluslararası hakemli dergilerde 30'un üzerinde makalesi bulunuyor.</p>
       <p>2024'ten bu yana İstanbul Sabahattin Zaim Üniversitesi'nde öğretim üyesi olarak görev yapıyor; Sürekli Eğitim Uygulama ve Araştırma Merkezi (İZÜSEM) ile Öğretim ve Öğrenmeyi Geliştirme Uygulama ve Araştırma Merkezi'nin (ÖGEM) yönetim kurullarında yer alıyor. Birçok sivil toplum kuruluşunda çalışıyor ve sosyal sorumluluk projelerine destek veriyor.</p>
     </div>
   </div>
@@ -373,9 +378,9 @@ def build():
     # Kitaplar
     write("kitaplar.html",
           "Kitaplar | Prof. Dr. Ahmet Avcı",
-          "Prof. Dr. Ahmet Avcı'nın kitapları: Başarılı ve Mutlu Olmaya Var mısın?, Kendimizi ve Çocuklarımızı Nasıl Yetiştirelim?, Eğitim Bilimine Giriş.",
+          "Prof. Dr. Ahmet Avcı'nın kitapları: Başarılı ve Mutlu Olmaya Var mısın?, Kendimizi ve Çocuklarımızı Nasıl Yetiştirelim?, Dijital Liderlik, Kurumsal Başarının Anahtarı serisi ve Eğitim Bilimine Giriş.",
           page_hero("Kitaplar", "Yazdığı kitaplar",
-                    "Öğrenciler, aileler ve eğitimciler için yazılmış kitaplar.") +
+                    "Öğrenciler, aileler, eğitimciler ve yöneticiler için yazılmış kitaplar.") +
           f"""<section class="section">
   <div class="wrap">
     <div class="books books-lg">
@@ -654,7 +659,7 @@ def build():
           "6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında aydınlatma metni.",
           page_hero("Yasal", "KVKK Aydınlatma Metni") + f"""<section class="section"><div class="wrap prose narrow">
 {legal_note}
-<p>Bu metin, 6698 sayılı Kişisel Verilerin Korunması Kanunu'nun (“KVKK”) 10. maddesi uyarınca, www.ahmetavci.com.tr adresindeki internet sitesinin ziyaretçilerini bilgilendirmek amacıyla hazırlanmıştır.</p>
+<p>Bu metin, 6698 sayılı Kişisel Verilerin Korunması Kanunu'nun (“KVKK”) 10. maddesi uyarınca, {SITE.split('//')[1]} adresindeki internet sitesinin ziyaretçilerini bilgilendirmek amacıyla hazırlanmıştır.</p>
 <h3>Veri sorumlusu</h3>
 <p>Prof. Dr. Ahmet Avcı. İletişim: <a href="mailto:{MAIL}">{MAIL}</a></p>
 <h3>İşlenen kişisel veriler ve amaçları</h3>
@@ -668,7 +673,7 @@ def build():
 </div></section>
 """)
     write("cerez-politikasi.html", "Çerez Politikası | Prof. Dr. Ahmet Avcı",
-          "www.ahmetavci.com.tr çerez politikası.",
+          f"{SITE.split('//')[1]} çerez politikası.",
           page_hero("Yasal", "Çerez Politikası") + f"""<section class="section"><div class="wrap prose narrow">
 {legal_note}
 <p>Bu site reklam, izleme veya analiz çerezi kullanmaz ve ziyaretçi davranışlarını takip etmez.</p>
@@ -679,7 +684,7 @@ def build():
 </div></section>
 """)
     write("gizlilik.html", "Gizlilik | Prof. Dr. Ahmet Avcı",
-          "www.ahmetavci.com.tr gizlilik bildirimi.",
+          f"{SITE.split('//')[1]} gizlilik bildirimi.",
           page_hero("Yasal", "Gizlilik") + f"""<section class="section"><div class="wrap prose narrow">
 {legal_note}
 <p>Gizliliğinize önem veriyoruz. Bu site bilgi amaçlıdır; üyelik, ödeme veya veri saklayan bir form içermez.</p>
@@ -695,6 +700,7 @@ def build():
     # sitemap
     pages = ["index.html"] + [h for h, _ in MENU] + ["akademik.html", "danismanlik.html", "basinda.html", "kaynaklar.html", "bulten.html", "en.html", "kvkk.html", "cerez-politikasi.html", "gizlilik.html"]
     urls = "\n".join(f"  <url><loc>{SITE}/{'' if p == 'index.html' else p}</loc></url>" for p in pages)
+    (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
     (ROOT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}\n</urlset>\n', encoding="utf-8")
 
 
