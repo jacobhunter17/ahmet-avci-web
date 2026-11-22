@@ -232,7 +232,6 @@ def build():
       <img src="img/portre.jpg" alt="Prof. Dr. Ahmet Avcı" width="330" height="330">
     </div>
   </div>
-{STATS}
 </section>
 
 <section class="section">
