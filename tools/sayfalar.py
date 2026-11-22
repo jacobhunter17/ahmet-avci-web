@@ -168,7 +168,9 @@ BOOKS = [
     ("Dijital Liderlik ve Proaktif İş Davranışları İlişkisi", "Bireysel özümseme kapasitesi ve katılımcı insan kaynakları uygulamalarının rolü.", "Gece Kitaplığı", "dijital-liderlik.jpg"),
     ("Personel Güçlendirme, Örgütsel Adanmışlık, İş Tatmini", "Kurumsal Başarının Anahtarı 1. Eğitim yönetimi açısından analiz ve değerlendirme.", "Gece Kitaplığı", "kurumsal-basari-1.jpg"),
     ("Psikolojik Sermaye, Çalışan Esenliği, Örgütsel Dayanıklılık, İş Yaşamında Anlam ve Amaç", "Kurumsal Başarının Anahtarı 2. Eğitim yönetimi açısından analiz ve değerlendirme.", "Gece Kitaplığı", "kurumsal-basari-2.jpg"),
-    ("Eğitim Bilimine Giriş", "Eğitim bilimlerinin temel konularını bir arada ele alan kapsamlı bir kaynak kitap.", "12 bölüm · 1.008 sayfa", ""),
+    ("Örgütsel Adalet, Örgütsel Güven, Öğrenen Örgüt", "Kurumsal Başarının Anahtarı 3. Eğitim yönetimi açısından analiz ve değerlendirme.", "Gece Kitaplığı", "kurumsal-basari-3.jpg"),
+    ("İş Motivasyonu, İş Biçimlendirme, İş, Aile ve Yaşam Dengesi", "Kurumsal Başarının Anahtarı 4. Eğitim yönetimi açısından analiz ve değerlendirme.", "Gece Kitaplığı", "kurumsal-basari-4.jpg"),
+    ("Eğitim Bilimine Giriş", "Eğitim bilimlerinin temel konularını bir arada ele alan kapsamlı bir kaynak kitap.", "12 bölüm · 1.008 sayfa · İdeal Kültür Yayıncılık", "egitim-bilimine-giris.jpg"),
 ]
 
 
@@ -342,7 +344,7 @@ def build():
       <p>İstanbul'da doğan Prof. Dr. Ahmet Avcı; 2002'de lisans, 2005'te yüksek lisans ve 2010'da doktora eğitimini Marmara Üniversitesi'nde tamamladı. 2010 yılında Fatih Sultan Mehmet Vakıf Üniversitesi Eğitim Bilimleri Bölümü'nde akademik kariyerine başladı. Aynı yıl Sürekli Eğitim Uygulama ve Araştırma Merkezi'nin (FSMSEM) kurucu müdürlüğünü üstlendi ve merkezi 2010–2018 yılları arasında yönetti. 2014'te Kariyer, Girişimcilik ve Mesleki Test Merkezi'ni (FSMKAM), 2018'de ise tasarımında ve geliştirilmesinde aktif rol aldığı SOSYOPARK'ı kurucu müdür olarak hayata geçirdi.</p>
       <p>2020–2023 yılları arasında Varlık Fonu bünyesindeki kurumlarda üst düzey yöneticilik yaptı. Türkiye Sigorta'da önce Eğitim, Gelişim ve Akademi Direktörlüğünü, ardından CEO Ofis Direktörlüğünü yürüttü. 2022'de Türkiye Katılım Sigorta'nın kuruluşunda aktif rol aldı; İnsan Kaynakları, Finans, Bilgi Teknolojileri, Kurumsal İletişim ve Tedarik birimlerini Genel Müdür Yardımcısı olarak yönetti.</p>
       <p>Ulusal ve uluslararası birçok araştırma ve projede proje başkanı, yürütücü, tasarımcı ve koordinatör olarak görev aldı. Araştırma, eğitim ve danışmanlık şirketlerinde eğitim koordinatörü, proje direktörü ve genel müdür olarak çalıştı; birçok firmaya yönetim danışmanlığı verdi. Pek çok radyo ve televizyon programına konuk oldu; eğitim, kültür ve yönetim konularını ele aldığı “Artılar ve Eksiler” programını hazırlayıp sundu.</p>
-      <p>“Dijital Liderlik ve Proaktif İş Davranışı, Bireysel Özümseme Kapasitesi ve Katılımcı İnsan Kaynaklarının Rolü” başlıklı ikinci doktorasıyla, kurumların teknoloji, insan kaynakları ve kurumsal başarı bağlamında yararlanabileceği bir rehber ortaya koydu. Altı kitabı ve ulusal ve uluslararası hakemli dergilerde 30'un üzerinde makalesi bulunuyor.</p>
+      <p>“Dijital Liderlik ve Proaktif İş Davranışı, Bireysel Özümseme Kapasitesi ve Katılımcı İnsan Kaynaklarının Rolü” başlıklı ikinci doktorasıyla, kurumların teknoloji, insan kaynakları ve kurumsal başarı bağlamında yararlanabileceği bir rehber ortaya koydu. Sekiz kitabı ve ulusal ve uluslararası hakemli dergilerde 30'un üzerinde makalesi bulunuyor.</p>
       <p>2024'ten bu yana İstanbul Sabahattin Zaim Üniversitesi'nde öğretim üyesi olarak görev yapıyor; Sürekli Eğitim Uygulama ve Araştırma Merkezi (İZÜSEM) ile Öğretim ve Öğrenmeyi Geliştirme Uygulama ve Araştırma Merkezi'nin (ÖGEM) yönetim kurullarında yer alıyor. Birçok sivil toplum kuruluşunda çalışıyor ve sosyal sorumluluk projelerine destek veriyor.</p>
     </div>
   </div>
