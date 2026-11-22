@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.ahmetavci.com.tr/</loc><lastmod>2026-11-22</lastmod></url>
+  <url><loc>https://www.ahmetavci.com.tr/</loc></url>
+  <url><loc>https://www.ahmetavci.com.tr/hakkimda.html</loc></url>
+  <url><loc>https://www.ahmetavci.com.tr/kitaplar.html</loc></url>
+  <url><loc>https://www.ahmetavci.com.tr/konferanslar.html</loc></url>
+  <url><loc>https://www.ahmetavci.com.tr/akademik.html</loc></url>
+  <url><loc>https://www.ahmetavci.com.tr/medya.html</loc></url>
+  <url><loc>https://www.ahmetavci.com.tr/iletisim.html</loc></url>
+  <url><loc>https://www.ahmetavci.com.tr/kvkk.html</loc></url>
+  <url><loc>https://www.ahmetavci.com.tr/cerez-politikasi.html</loc></url>
+  <url><loc>https://www.ahmetavci.com.tr/gizlilik.html</loc></url>
 </urlset>
