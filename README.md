@@ -1,6 +1,6 @@
 # Prof. Dr. Ahmet Avcı – Kişisel Web Sitesi
 
-Adres: https://www.ahmetavci7.com (yakında https://www.ahmetavci.com.tr; geçiş için `tools/sayfalar.py` içindeki `SITE` değerini değiştirip sayfaları yeniden üretin)
+Adres: https://www.profahmetavci.com (eski adresler www.ahmetavci7.com ve ahmetavci.com.tr buraya yönlendirilir; `vercel.json`). Adres değişirse `tools/sayfalar.py` içindeki `SITE` değerini değiştirip sayfaları yeniden üretin.
 
 Sade HTML, CSS ve JavaScript ile yazılmış çok sayfalı site. Vercel'de derleme adımı yoktur.
 
