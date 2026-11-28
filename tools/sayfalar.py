@@ -4,8 +4,8 @@ Kullanım: python3 tools/sayfalar.py   (depo kökünden). Çıktı: kökteki *.h
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-# Yeni alan adı Vercel'de geçerli olunca bunu "https://www.ahmetavci.com.tr" yapın ve sayfaları yeniden üretin.
-SITE = "https://www.ahmetavci7.com"
+# Sitenin birincil adresi (canonical, OG, sitemap, robots bundan üretilir).
+SITE = "https://www.profahmetavci.com"
 MAIL = "ahmetavci7@gmail.com"
 LINKEDIN = "https://www.linkedin.com/in/ahmetavci7/"
 SCHOLAR = "https://scholar.google.com/citations?user=0Kvo2tEAAAAJ"
