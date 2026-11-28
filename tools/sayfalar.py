@@ -12,7 +12,7 @@ SCHOLAR = "https://scholar.google.com/citations?user=0Kvo2tEAAAAJ"
 DERGIPARK = "https://dergipark.org.tr/tr/pub/@ahmetavci7"
 VIDEO_ID = "k4j9KXiS_m0"
 # Duyuru şeridi: yeni kitap ya da yaklaşan seminer olunca buraya yazın (boşsa gösterilmez).
-DUYURU = "Duyuru: yeni kitap ve yaklaşan seminer duyuruları burada yer alacak."
+DUYURU = ""
 
 MENU = [
     ("hakkimda.html", "Hakkımda"),
@@ -70,7 +70,6 @@ def nav(path):
     <button class="menu-btn" aria-label="Menü" aria-expanded="false">☰</button>
     <nav class="links">
 {links}
-      <a href="iletisim.html?tur=konferans" class="btn btn-small">Konferans Talebi</a>
     </nav>
   </div>
 </header>
